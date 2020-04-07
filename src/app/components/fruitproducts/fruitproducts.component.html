@@ -1,21 +1,39 @@
 
-<section class="pb_70" style="padding-top: 15px" >
+<section class="pb_70" >
     <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-12 text-center">
+                <div class="heading_s3 text-center animation" data-animation="fadeInDown" data-animation-delay="0.02s">
+                  <!-- <span class="sub_heading">DomiFrut</span> -->
+                    <h2 style="text-transform: unset;">Frutas y hortalizas a domicilio</h2>
+                </div>
+                <p class="animation" data-animation="fadeInUp" data-animation-delay="0.03s">Excelente calidad al mejor precio!
+                  <!-- <br class="d-none d-md-block"> de excelente calidad y al mejor precio. -->
+                </p>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="product_content">
                     <ul class="nav nav-tabs justify-content-center animation" data-animation="fadeInUp" data-animation-delay="0.04s" role="tablist">
-                        <li class="nav-item">
-                        <a class="nav-link" id="tab3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><span class="pr_icon3"></span>Frutas</a>
+                      <li class="nav-item">
+                        <a class="nav-link" id="tab5" data-toggle="tab" href="#tab-5" role="tab" aria-controls="tab-5" aria-selected="false"  ><span class="pr_icon4"></span>Bulbos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false" ><span class="pr_icon2"></span>Vegetales</a>
+                        <a class="nav-link" id="tab3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><span class="pr_icon3"></span>Frutos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" id="tab4" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false"  ><span class="pr_icon4"></span>Exquiciteces</a>
+                        <a class="nav-link" id="tab4" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false"  ><span class="pr_icon5"></span>Legumbres</a>
+                      </li>
+                       <li class="nav-item">
+                        <a class="nav-link" id="tab6" data-toggle="tab" href="#tab-6" role="tab" aria-controls="tab-6" aria-selected="false"  ><span class="pr_icon2"></span>Tubérculos</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"  (click)="getAllTixs()"><span class="pr_icon1"></span>Todo</a>
+                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false" ><span class="pr_icon1"></span>Verduras</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"  (click)="getAllTixs()">
+                          <span class="pr_icon7"></span>Todo</a>
                       </li>
                   
                     </ul>
@@ -55,7 +73,7 @@
                         <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
                             <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.05s">
                                 <a href="javascript:void(0);" class="nav-link sidetoggle">
-                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Vegetales'" (click)="viewProduct(tix)" >
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Verduras'" (click)="viewProduct(tix)" >
                                         <div class="product">
                                             <div class="product_img">
                                                 <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
@@ -86,7 +104,7 @@
                         <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab3">
                           <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.05s">
                             <a href="javascript:void(0);" class="nav-link sidetoggle">
-                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Frutas'" (click)="viewProduct(tix)">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Frutos'" (click)="viewProduct(tix)">
                                        <div class="product">
                                             <div class="product_img">
                                                 <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
@@ -117,7 +135,69 @@
                         <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab4">
                            <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.05s">
                                 <a href="javascript:void(0);" class="nav-link sidetoggle">
-                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Exquiciteces'"(click)="viewProduct(tix)">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Legumbres'"(click)="viewProduct(tix)">
+                                      <div class="product">
+                                            <div class="product_img">
+                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                                <div class="product_action_box">
+                                                    <ul class="list_none pr_action_btn">
+                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product_info">
+                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                               <!-- <div class="rating">
+                                                    <div class="product_rate" style="width:60%"></div></div> -->
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">COLP </span>
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp">$ USD </span>
+                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">
+                                               {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
+                                               <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
+                                               {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
+                                               <span> ({{tix.presentacion}})</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </a>                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-5" role="tabpanel" aria-labelledby="tab5">
+                           <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.05s">
+                                <a href="javascript:void(0);" class="nav-link sidetoggle">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Bulbos'"(click)="viewProduct(tix)">
+                                      <div class="product">
+                                            <div class="product_img">
+                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                                <div class="product_action_box">
+                                                    <ul class="list_none pr_action_btn">
+                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product_info">
+                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                               <!-- <div class="rating">
+                                                    <div class="product_rate" style="width:60%"></div></div> -->
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">COLP </span>
+                                                <span [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp">$ USD </span>
+                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">
+                                               {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
+                                               <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
+                                               {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
+                                               <span> ({{tix.presentacion}})</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </a>                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-6" role="tabpanel" aria-labelledby="tab6">
+                           <div class="row animation" data-animation="fadeInUp" data-animation-delay="0.05s">
+                                <a href="javascript:void(0);" class="nav-link sidetoggle">
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Tubérculos'"(click)="viewProduct(tix)">
                                       <div class="product">
                                             <div class="product_img">
                                                 <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>

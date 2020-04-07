@@ -678,6 +678,8 @@ button:focus {
 }
 .bg_light_yellow {
 	background-color: #faeac8 !important;
+	/*background-color: #fff707b8 !important;*/
+	
 }
 .bg_light_blue {
 	background-color: #d2e8f2 !important;
@@ -2215,31 +2217,37 @@ body.active {
 	background-position: 0px 0px;
 }
 .pr_icon2 {
-	background-position: -41px 0px;
+	background-position: -42px 0px;
 }
 .pr_icon3 {
-	background-position: -85px 0px;
+	background-position: -82px 0px;
 }
 .pr_icon4 {
 	background-position: -118px 0px;
 }
 .pr_icon5 {
-	background-position: -153px 0px;
+	background-position: -152px 0px;
+}
+.pr_icon7 {
+	background-position: 0px -70px;
 }
 .nav-tabs .nav-link:hover .pr_icon1, .nav-tabs .nav-link.active .pr_icon1, .nav-tabs .nav-link.active:hover .pr_icon1 {
 	background-position: 0px -35px;
 }
 .nav-tabs .nav-link:hover .pr_icon2, .nav-tabs .nav-link.active .pr_icon2, .nav-tabs .nav-link.active:hover .pr_icon2 {
-	background-position: -41px -35px;
+	background-position: -42px -35px;
 }
 .nav-tabs .nav-link:hover .pr_icon3, .nav-tabs .nav-link.active .pr_icon3, .nav-tabs .nav-link.active:hover .pr_icon3 {
-	background-position: -85px -35px;
+	background-position: -82px -35px;
 }
 .nav-tabs .nav-link:hover .pr_icon4, .nav-tabs .nav-link.active .pr_icon4, .nav-tabs .nav-link.active:hover .pr_icon4 {
 	background-position: -118px -35px;
 }
 .nav-tabs .nav-link:hover .pr_icon5, .nav-tabs .nav-link.active .pr_icon5, .nav-tabs .nav-link.active:hover .pr_icon5 {
-	background-position: -153px -35px;
+	background-position: -152px -35px;
+}
+.nav-tabs .nav-link:hover .pr_icon7, .nav-tabs .nav-link.active .pr_icon7, .nav-tabs .nav-link.active:hover .pr_icon7 {
+	background-position: 0px -105px;
 }
 .product {
 	background-color: #fff;

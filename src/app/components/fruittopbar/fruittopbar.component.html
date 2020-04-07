@@ -50,6 +50,7 @@
                     </ul>
                   </div>
                 </li>
+
                 <li class="dropdown" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">
                   <a class="dropdown-toggle"  data-toggle="dropdown" >COLP (Bs.S. {{this._uw.info[0].colp}}) </a>
                   <div class="dropdown-menu shadow dropdown-menu-right" >
@@ -63,6 +64,7 @@
                     </ul>
                   </div>
                 </li>
+                
                 <li class="dropdown" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp">
                   <a class="dropdown-toggle"  data-toggle="dropdown" >USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
                   <div class="dropdown-menu shadow dropdown-menu-right" >
