@@ -4,6 +4,11 @@ import { DataApiService } from '../../services/data-api.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { TixInterface } from '../../models/tix-interface'; 
+import { SaleInterface } from '../../models/sale-interface'; 
+import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
+// import { ValidationError } from '../../../assets/file-picker/src/lib/validation-error.model';
+import { isError } from "util";
+// import { FilePickerComponent } from '../../../assets/file-picker/src/lib/file-picker.component';
 
 @Component({
   selector: 'app-fruitcart',
@@ -16,16 +21,62 @@ export class FruitcartComponent implements OnInit {
   	public _uw:UserWService,
   	private dataApi: DataApiService,
   	private router: Router,
-  	private location: Location
+  	private location: Location,
+      private formBuilder: FormBuilder
   	) { }
+    stepUno=true;
+  stepDos=false;
+  stepTres=false;
+    public setStepDos(){
+    this.stepDos=true;
+    this.stepUno=false;
+    this.stepTres=false;
+  }
+  public setStepUno(){
+    this.stepDos=false;
+    this.stepUno=true;
+    this.stepTres=false;
+  }
+  public setStepTres(){
+    this.stepDos=false;
+    this.stepUno=false;
+    this.stepTres=true;
+  }
+
+public sale : SaleInterface ={
+      car:[],
+      email:"",
+      direccion:"",
+      id:"",
+      personaContacto:"",
+      total:0
+    };
+
+ngFormSendSale: FormGroup;
+  submitted = false;
+     
+  
+
    loadAPI = null;  
   url = "assets/assetsfruit/js/magnific-popup.min.js";
   url2 = "assets/assetsfruit/js/popper.min.js";
   url3 = "assets/assetsfruit/js/scripts.js";
 
   ngOnInit() {
+        this.stepUno=true;
+    if(this._uw.numProd<1){
+    this.router.navigate(['/']);
+
+  }
+     this.ngFormSendSale = this.formBuilder.group({
+      direccion: ['', [Validators.required]],
+      telefono: ['', [Validators.required]],
+      personaContacto: ['', [Validators.required]],
+      total: [0,[Validators.required]]
+      });
   	 if(this._uw.numProd<1){
   	// this.router.navigate(['/']);
+
 
   }
 	if (this._uw.loaded==true){
@@ -37,6 +88,25 @@ export class FruitcartComponent implements OnInit {
       }
     this._uw.loaded=true;
   }
+
+
+public okSale(){
+
+  this.submitted = true;
+      if (this.ngFormSendSale.invalid) {
+        this._uw.errorFormSendSale=true;
+      return;
+        } 
+        this._uw.errorFormSendSale=false;
+
+      this.sale = this.ngFormSendSale.value;
+this.sale.total=(this._uw.subTotal*this._uw.currency);
+  this.sale.car=this._uw.car;
+  return this.dataApi.saveSale(this.sale)
+        .subscribe(
+        );
+}
+
   public minus(index){
   	let id=index;
     if(this._uw.car[id].quantity>1){      
@@ -58,6 +128,9 @@ export class FruitcartComponent implements OnInit {
 
   }
 }
+ get fval() {
+  return this.ngFormSendSale.controls;
+  }
 
   public loadScript() {
     let node = document.createElement("script");

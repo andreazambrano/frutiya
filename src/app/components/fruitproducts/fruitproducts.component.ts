@@ -19,6 +19,7 @@ export class FruitproductsComponent implements OnInit {
   public tixsFrutas:TixInterface;
   public tixsExquiciteces:TixInterface;
   loadAPI = null;  
+
   url = "assets/assetsfruit/js/magnific-popup.min.js";
   url2 = "assets/assetsfruit/js/popper.min.js";
   url3 = "assets/assetsfruit/js/scripts.js";
@@ -30,12 +31,14 @@ export class FruitproductsComponent implements OnInit {
     this._uw.imagePreviewProduct=this._uw.tixPreview.images[0];
     this.getAllTixs();
   } 
+
   getAllTixs(){
     this.dataApi
     .getAllTixs()
     .subscribe((tixs: TixInterface) => (this.tixs=tixs));
   }
   ngOnInit() {
+
   	if (this._uw.loaded==true){
       this.loadAPI = new Promise(resolve => {
         this.loadScript();

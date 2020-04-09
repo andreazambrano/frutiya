@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fruitfooter',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FruitfooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+	 public location: Location,
+    public router: Router
+  	) { }
 
   ngOnInit() {
   }

@@ -93,7 +93,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       </div>
       <ul class="navbar-nav attr-nav align-items-center">
-        <li>
+        <li [hidden]="router.url.includes('/fruitcart')">
           <a href="javascript:void(0);" class="nav-link search_trigger"><i class="ion-ios-search-strong"></i>
           </a>
           <div class="search-overlay">
@@ -108,14 +108,14 @@
           </div>
         </li>
           <!-- CARRO DESPLEGABLE -->
-        <li class="dropdown cart_wrap">
+        <li class="dropdown cart_wrap" [hidden]="router.url.includes('/fruitcart')">
         	<a class="nav-link"  data-toggle="dropdown">
             <i class="ion-bag"></i>
             <span class="cart_count" [hidden]="this._uw.numProd==0">{{this._uw.numProd}}</span>
           </a>
           <div class="cart_box dropdown-menu dropdown-menu-right" [hidden]="this._uw.car.length==0" *ngIf="this._uw.info[0]">
             <ul class="cart_list" [hidden]="this._uw.car.length==0">
-              <li *ngFor="let tix of this._uw.car;let i = index" [hidden]="i>3" >
+              <li *ngFor="let tix of this._uw.car;let i = index" [hidden]="i>2" >
                 <a (click)="remove(i)" class="item_remove"><i class="ion-close"></i></a>
                 <a ><img src="{{tix.images[0]}}" alt="">{{tix.productName}}</a>
                 <span class="cart_quantity" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp"> {{this._uw.car[i].quantity}} x 
@@ -140,11 +140,11 @@
                   </span>
                 </span>
               </li>
-              <li *ngIf="this._uw.car"[hidden]="this._uw.car.length<5 || this._uw.car.length==5">
-                {{this._uw.car.length-4}} productos más ...
+              <li *ngIf="this._uw.car"[hidden]="this._uw.car.length<4 || this._uw.car.length==4">
+                {{this._uw.car.length-3}} productos más ...
               </li>
-              <li *ngIf="this._uw.car"[hidden]="this._uw.car.length<5 || this._uw.car.length>5">
-                {{this._uw.car.length-4}} producto más ...
+              <li *ngIf="this._uw.car"[hidden]="this._uw.car.length<4 || this._uw.car.length>4">
+                {{this._uw.car.length-3}} producto más ...
               </li>
             </ul>
             <div class="cart_footer" [hidden]="this._uw.car.length==0" *ngIf="this._uw.info[0]">

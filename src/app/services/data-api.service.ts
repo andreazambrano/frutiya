@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { TixInterface } from '../models/tix-interface';
+import { SaleInterface } from '../models/sale-interface';
 import { InfoInterface } from '../models/info-interface';
 import { UserWService } from "./user-w.service";
 
@@ -14,6 +15,7 @@ export class DataApiService {
 	info: Observable<any>;
 	tixs: Observable<any>;
 	tix: Observable<any>;
+	sale: Observable<any>;
   constructor(
   	public _uw:UserWService,
   	private http: HttpClient, 
@@ -24,12 +26,18 @@ export class DataApiService {
   		Authorization: this.authService.getToken()
   		});
 	getAllTixs(){
-		const url_api = 'http://192.168.1.2:3025/api/tixes?filter[where][status]=activated';
+		const url_api = 'https://db.andesproadventures.com:3025/api/tixes?filter[where][status]=activated';
 		return this.http.get(url_api);
 	}
 	getInfo(){
-		const url_api=`http://192.168.1.2:3025/api/infos/`;
+		const url_api=`https://db.andesproadventures.com:3025/api/infos/`;
 		this.info = this.http.get(url_api);
 		return (this.info);
+	}
+	saveSale(sale :SaleInterface){
+		const url_api='https://db.andesproadventures.com:3025/api/sale';
+		return this.http
+		.post<SaleInterface>(url_api, sale)
+		.pipe(map(data => data));
 	}
 }

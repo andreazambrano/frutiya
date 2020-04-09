@@ -21,6 +21,7 @@ export class UserWService {
 	errorFormAffiliate:boolean;
 	errorFormAddtixs:boolean;
 	errorFormPartner:boolean;
+	errorFormSendSale:boolean;
 	file:any[]=[];
 	foredit:any={};
 	idCard:string;

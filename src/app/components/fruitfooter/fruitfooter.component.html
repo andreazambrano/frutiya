@@ -1,5 +1,5 @@
-<footer class="bg_gray">
-    <div class="top_footer small_pt small_pb">
+<footer class="bg_gray" >
+    <div class="top_footer small_pt small_pb" [hidden]="router.url.includes('/fruitcart')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-3 col-sm-4 col-xs-12        ">
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="middle_footer">
+    <div class="middle_footer" [hidden]="router.url.includes('/fruitcart')">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -105,7 +105,7 @@
                         <!-- <li><a href="index.html#"><img src="assets/assetsfruit/images/visa.png" alt="visa"/></a></li> -->
                         <!-- <li><a href="index.html#"><img src="assets/assetsfruit/images/discover.png" alt="discover"/></a></li> -->
                       <!--   <li><a href="index.html#"><img src="assets/assetsfruit/images/master_card.png" alt="master_card"/></a></li> -->
-                        <li><a href="index.html#"><img src="assets/assetsfruit/images/paypal.png" alt="paypal"/></a></li>
+                        <li ><a href="index.html#" [hidden]="router.url.includes('/fruitcart')"><img src="assets/assetsfruit/images/paypal.png" alt="paypal"/></a></li>
                         <!-- <li><a href="index.html#"><img src="assets/assetsfruit/images/amarican_express.png" alt="amarican_express"/></a></li> -->
                     </ul>
                 </div>

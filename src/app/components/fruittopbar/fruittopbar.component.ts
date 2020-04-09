@@ -15,8 +15,8 @@ export class FruittopbarComponent implements OnInit {
   constructor(
  public _uw:UserWService,
  private dataApi: DataApiService,
-  private router: Router,
-  private location: Location
+  public router: Router,
+  public location: Location
   	) { }
     public tixToAdd:TixInterface;
    loadAPI = null;  
