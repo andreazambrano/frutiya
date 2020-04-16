@@ -167,7 +167,7 @@
               </p>
                 <p class="cart_buttons">
                   <a routerLink="fruitcart" class="btn btn-dark btn-radius view-cart">Mi bolsa</a>
-                  <a  class="btn btn-default btn-radius checkout">Procesar</a>
+                  <a   routerLink="fruitcart" class="btn btn-default btn-radius checkout">Procesar</a>
                 </p>
             </div>
         	</div>
@@ -185,13 +185,16 @@
       <img src="assets/assetsfruit/images/logo_dark.png" alt="logo_dark"/>
   </div>
   <div class="widget widget_text">
+
     <div class="product_img" style="width: 100%;" >
+       <span class="pr_flash bg_green">{{this._uw.tixPreview.category}}</span>
        <img src="{{this._uw.imagePreviewProduct}}" alt=""/>
     </div>
      <div class="pr_detail" *ngIf="this._uw.info[0]">
       <div class="product-description">
         <div class="product-title">
           <h4><a >{{this._uw.tixPreview.productName}}</a></h4>
+          <!-- <p>{{this._uw.tixPreview.description}}</p> -->
         </div>
         <div class="product_price float-left">
           <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -211,11 +214,12 @@
         <div class=" mt-2 float-right">
           <span> ({{this._uw.tixPreview.presentacion}})</span>
         </div>
-        <div class="clearfix"></div>
-        <hr />
-        <p>{{this._uw.tixPreview.description}}</p>
+        <!-- <div class="clearfix"></div> -->
+        <!-- <hr / > -->
+        
       </div>
-      <hr />
+      <hr style="margin-top: 3rem; border-top: 0px;">
+      <hr/>
       <div class="cart_extra">
         <div class="cart-product-quantity">
           <div class="quantity">
@@ -228,11 +232,11 @@
             <button class="btn btn-default btn-radius btn-sm btn-addtocart sidemenu_close" type="button" (click)="addToBag()">Agregar a mi bolsa</button>
         </div>
       </div>
-      <div class="clearfix"></div>
-      <hr />
-      <ul class="product-meta list_none">
+      <!-- <div class="clearfix"></div> -->
+   
+      <!-- <ul class="product-meta list_none">
         <li>Categoria: <a >{{this._uw.tixPreview.category}}</a>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </div>

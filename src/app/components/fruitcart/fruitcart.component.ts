@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { TixInterface } from '../../models/tix-interface'; 
 import { SaleInterface } from '../../models/sale-interface'; 
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
+import { ScrollTopService }  from '../../services/scroll-top.service';
 // import { ValidationError } from '../../../assets/file-picker/src/lib/validation-error.model';
 import { isError } from "util";
 // import { FilePickerComponent } from '../../../assets/file-picker/src/lib/file-picker.component';
@@ -18,26 +19,36 @@ import { isError } from "util";
 export class FruitcartComponent implements OnInit {
 
   constructor(
+    public scrollTopService:ScrollTopService,
   	public _uw:UserWService,
   	private dataApi: DataApiService,
   	private router: Router,
   	private location: Location,
-      private formBuilder: FormBuilder
+    private formBuilder: FormBuilder
   	) { }
+
+ loadAPI = null;  
+   url4="assets/assetsfruit/js/jquery.parallax-scroll.js";
+   url5 = "assets/assetsfruit/js/scripts.js";
+   
+
     stepUno=true;
   stepDos=false;
   stepTres=false;
     public setStepDos(){
+      this.scrollTopService.setScrollTop();
     this.stepDos=true;
     this.stepUno=false;
     this.stepTres=false;
   }
   public setStepUno(){
+    this.scrollTopService.setScrollTop();
     this.stepDos=false;
     this.stepUno=true;
     this.stepTres=false;
   }
   public setStepTres(){
+    this.scrollTopService.setScrollTop();
     this.stepDos=false;
     this.stepUno=false;
     this.stepTres=true;
@@ -57,12 +68,12 @@ ngFormSendSale: FormGroup;
      
   
 
-   loadAPI = null;  
   url = "assets/assetsfruit/js/magnific-popup.min.js";
   url2 = "assets/assetsfruit/js/popper.min.js";
   url3 = "assets/assetsfruit/js/scripts.js";
 
   ngOnInit() {
+ 
         this.stepUno=true;
     if(this._uw.numProd<1){
     this.router.navigate(['/']);
@@ -79,17 +90,34 @@ ngFormSendSale: FormGroup;
 
 
   }
+
 	if (this._uw.loaded==true){
 	    this.loadAPI = new Promise(resolve => {
         this.loadScript();
         this.loadScript2();
+        this.loadScript4();
         this.loadScript3();
         });
       }
     this._uw.loaded=true;
   }
 
-
+  public loadScript4() {
+      let node = document.createElement("script");
+      node.src = this.url4;
+      node.type = "text/javascript";
+      node.async = true;
+      node.charset = "utf-8";
+      document.getElementsByTagName("head")[0].appendChild(node);
+    }
+        public loadScript5() {
+      let node = document.createElement("script");
+      node.src = this.url5;
+      node.type = "text/javascript";
+      node.async = true;
+      node.charset = "utf-8";
+      document.getElementsByTagName("head")[0].appendChild(node);
+    }
 public okSale(){
 
   this.submitted = true;

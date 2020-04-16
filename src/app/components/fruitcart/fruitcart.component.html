@@ -12,12 +12,12 @@
                                     <th class="product-price">Precio</th>
                                     <th class="product-quantity">Cant</th>
                                     <th class="product-subtotal">Total</th>
-                                    <th class="product-remove">Eliminar</th>
+                       <!--              <th class="product-remove">Eliminar</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                             	<tr *ngFor="let tix of this._uw.car;let i = index">
-                                	<td class="product-thumbnail"><a ><img  src="{{tix.images[0]}}" alt=""></a></td>
+                                	<td class="product-thumbnail"><a ><img  src="{{tix.images[0]}}" alt=""></a> <a (click)="remove(i)" class="item_remove"><i class="ti-close" style="color:red; font-weight: 600px;"></i></a></td>
                                     <td class="product-name" data-title="Producto"><a >{{tix.productName}} </a></td>
                                     <td class="product-price" data-title="Precio">{{tix.globalPrice*this._uw.currency | number :'1.2-2'}}</td>
                                     <td class="product-quantity" data-title="Cantidad">
@@ -32,9 +32,9 @@
                                     <td class="product-subtotal" data-title="Sub-total por producto" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
                                     
                                     <td class="product-subtotal" data-title="Sub-total por producto" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">Colp {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
-                                    <td class="product-remove" data-title="Quitar">
-                                    	<a (click)="remove(i)"><i class="ti-close"></i></a>
-                                    </td>
+                                   <!--  <td class="product-remove" data-title="Quitar" >
+                                    	<a (click)="remove(i)" ><i class="ti-close" style=""></i></a>
+                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>
@@ -139,7 +139,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="telefono" formControlName="telefono" placeholder="Teléfono de contacto" [(ngModel)]="sale.telefono"
+                                <input type="tel" class="form-control" id="telefono" formControlName="telefono" placeholder="Teléfono de contacto" [(ngModel)]="sale.telefono"
                                 [ngClass]="{ 'is-invalid': submitted && fval.telefono.errors }"
                                 required><span class="required"></span>
                                 <div *ngIf="submitted && fval.telefono.errors" class="invalid-feedback">
@@ -149,24 +149,30 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="direccion" formControlName="direccion" placeholder="Dirección" [(ngModel)]="sale.direccion"
+                            <div class="form-group col-md-12">
+                                <!-- <input type="text" class="form-control" id="direccion" formControlName="direccion" placeholder="Dirección (Utbanizacción, # de casa y punto de referncia)" [(ngModel)]="sale.direccion"
                                 [ngClass]="{ 'is-invalid': submitted && fval.direccion.errors }"
-                                required><span class="required"></span>
+                                required> -->
+
+                                <textarea class="form-control height-80" id="direccion" formControlName="direccion" placeholder="Dirección (Utbanizacción, # de casa y punto de referncia)" [(ngModel)]="sale.direccion"
+                                                            [ngClass]="{ 'is-invalid': submitted && fval.direccion.errors }"
+                                                            required></textarea>
+
+                                <span class="required"></span>
                                 <div *ngIf="submitted && fval.direccion.errors" class="invalid-feedback">
                                     <div *ngIf="fval.direccion.errors.required" class="errorLabel">
                                     * La dirección es requerida.
                                     </div>
                                 </div>
                             </div>
-                            <div class="">
+                           <!--  <div class="">
                                 <div class="coupon field_form input-group">
                                     <input type="text" value="" class="form-control" placeholder="Ingrese código de cupón..">
                                     <div class="input-group-append">
                                         <button class="btn btn-dark btn-sm" type="submit">Aplicar Cupón</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="form-row">
                             
@@ -261,3 +267,4 @@
         </div>
     </form>
 </section>
+    <a href="index.html#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
