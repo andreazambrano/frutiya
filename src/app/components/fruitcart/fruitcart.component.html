@@ -11,27 +11,27 @@
                                     <th class="product-name">Producto</th>
                                     <th class="product-price">Precio</th>
                                     <th class="product-quantity">Cant</th>
-                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-subtotal">Sub-totales</th>
                        <!--              <th class="product-remove">Eliminar</th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                            	<tr *ngFor="let tix of this._uw.car;let i = index">
-                                	<td class="product-thumbnail"><a ><img  src="{{tix.images[0]}}" alt=""></a> <a (click)="remove(i)" class="item_remove"><i class="ti-close" style="color:red; font-weight: 600px;"></i></a></td>
-                                    <td class="product-name" data-title="Producto"><a >{{tix.productName}} </a></td>
-                                    <td class="product-price" data-title="Precio">{{tix.globalPrice*this._uw.currency | number :'1.2-2'}}</td>
-                                    <td class="product-quantity" data-title="Cantidad">
+                            	<tr *ngFor="let tix of this._uw.car;let i = index" style="border-top: 1px solid #dee2e6;">
+                                	<td class="product-thumbnail"><a ><img  src="{{tix.images[0]}}" alt=""  style="border-top: 0px;"></a> <a (click)="remove(i)" class="item_remove"><i class="ti-close" style="color:red; font-weight: 600px;"></i></a></td>
+                                    <td class="product-name" data-title="Producto"  style="border-top: 0px;"><a >{{tix.productName}} </a></td>
+                                    <td class="product-price" data-title="Precio"  style="border-top: 0px;">{{tix.globalPrice*this._uw.currency | number :'1.2-2'}}</td>
+                                    <td class="product-quantity" data-title="Cantidad"  style="border-top: 0px;">
     	                               	<div class="quantity" style="border: 0px; display: inline-flex;">
     		                                <input type="button" value="-" (click)="minus(i)" class="minus">
     					                    <input [(ngModel)]="this._uw.car[i].quantity" class="qty" size="1"  [ngModelOptions]="{standalone: true}" disabled="disabled"  >
     					                    <input type="button" value="+" (click)="plus(i)" class="plus">
     	                              	</div>
                               		</td>
-                                  	<td class="product-subtotal" data-title="Sub-total por producto" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs">$ {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.2-2'}}</td>
+                                  	<td class="product-subtotal" data-title="" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].bs"  style="border-top: 0px;">$ {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.2-2'}}</td>
                                     
-                                    <td class="product-subtotal" data-title="Sub-total por producto" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
+                                    <td class="product-subtotal" data-title="" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd" style="border-top: 0px;" >Bs.S. {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
                                     
-                                    <td class="product-subtotal" data-title="Sub-total por producto" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">Colp {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
+                                    <td class="product-subtotal" data-title="" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd"  style="border-top: 0px;">Colp {{this._uw.car[i].quantity*this._uw.car[i].globalPrice*this._uw.currency | number :'1.0-0'}}</td>
                                    <!--  <td class="product-remove" data-title="Quitar" >
                                     	<a (click)="remove(i)" ><i class="ti-close" style=""></i></a>
                                     </td> -->
@@ -45,15 +45,17 @@
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-6">
-                    <div class="heading_s2">
+                 <!--    <div class="heading_s2">
                         <span>.</span>
                         <h5>Sub Total</h5>
-                    </div>
-                    <div class="table-responsive">
+                    </div> -->
+                  <!--   <div class="table-responsive">
                         <table class="table" *ngIf="this._uw.info[0]">
                             <tbody>
                             <tr>
-                                <td class="cart_total_label">Sub total de la compra</td>
+                                <td class="cart_total_label">
+                                    <h5 style="font-size: 26px;">Sub Total</h5>
+                                </td>
                                 <td class="cart_total_amount"><strong>
                                      <span class="cart_amount" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp"> 
                                         <span class="price_symbole">$
@@ -73,7 +75,7 @@
                                 </strong></td>
                             </tr>
                         </tbody></table>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row" [hidden]="!stepUno">

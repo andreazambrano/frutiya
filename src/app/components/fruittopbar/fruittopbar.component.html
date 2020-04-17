@@ -5,10 +5,16 @@
             <div class="col-md-7">
               <ul class="contact_detail border_list list_none text-center text-md-left">
                 <li>
-                  <a ><i class="ti-mobile"></i> <span>(414) 007 0255</span></a>
+<!-- 
+                  <a href="tel:584147529202" style="cursor: pointer;">
+                            <span class="ti-mobile"></span>
+                            <p></p>
+                            </a> -->
+                  <a href="tel:584147529202" style="cursor: pointer;"><i class="ti-mobile"></i> <span>(414) 752 9202</span></a>
                 </li>
                 <li>
-                  <a ><i class="ti-email"></i> <span>info@frutme.com</span></a>
+                   <a href="mailto:soporte@frutme.com">soporte@frutme.com</a>
+                  <!-- <a ><i class="ti-email"></i> <span>soporte@frutme.com</span></a> -->
                 </li>
               </ul>
             </div>
@@ -38,42 +44,42 @@
                   </div>
                 </li>
                 <li class="dropdown" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">
-                  <a class="dropdown-toggle"  data-toggle="dropdown" >Bs.S.</a>
+                  <a class="dropdown-toggle"  style="cursor: pointer;" data-toggle="dropdown" >Bs.S.</a>
                   <div class="dropdown-menu shadow dropdown-menu-right" >
                     <ul>
                         <li *ngIf="this._uw.info[0]">
-                          <a class="dropdown-item" data-title="Peso Colombiano" (click)=setColp()> COLP (Bs.S. {{this._uw.info[0].colp}})</a>
+                          <a class="dropdown-item" style="cursor: pointer;" data-title="Peso Colombiano" (click)=setColp()> COLP (Bs.S. {{this._uw.info[0].colp}})</a>
                         </li>
                         <li *ngIf="this._uw.info[0]"> 
-                          <a class="dropdown-item" data-title="Dolar EEUU" (click)=setUsd()>$ USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
+                          <a class="dropdown-item"  style="cursor: pointer;"data-title="Dolar EEUU" (click)=setUsd()>$ USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
                         </li>
                     </ul>
                   </div>
                 </li>
 
                 <li class="dropdown" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd">
-                  <a class="dropdown-toggle"  data-toggle="dropdown" >COLP (Bs.S. {{this._uw.info[0].colp}}) </a>
+                  <a class="dropdown-toggle"  style="cursor: pointer;" data-toggle="dropdown" >COLP (Bs.S. {{this._uw.info[0].colp}}) </a>
                   <div class="dropdown-menu shadow dropdown-menu-right" >
                     <ul>
                         <li *ngIf="this._uw.info[0]">
-                          <a class="dropdown-item" data-title="Peso Colombiano" (click)=setBs()> Bs.S. </a>
+                          <a class="dropdown-item" style="cursor: pointer;" data-title="Peso Colombiano" (click)=setBs()> Bs.S. </a>
                         </li>
                         <li *ngIf="this._uw.info[0]"> 
-                          <a class="dropdown-item" data-title="Dolar EEUU" (click)=setUsd()>$ USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
+                          <a class="dropdown-item"  style="cursor: pointer;"data-title="Dolar EEUU" (click)=setUsd()>$ USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
                         </li>
                     </ul>
                   </div>
                 </li>
                 
                 <li class="dropdown" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp">
-                  <a class="dropdown-toggle"  data-toggle="dropdown" >USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
+                  <a class="dropdown-toggle"  style="cursor: pointer;" data-toggle="dropdown" >USD (Bs.S. {{1/this._uw.info[0].usd |  number:'1.0-0' }})</a>
                   <div class="dropdown-menu shadow dropdown-menu-right" >
                     <ul>
                       <li *ngIf="this._uw.info[0]">
-                          <a class="dropdown-item" data-title="Peso Colombiano" (click)=setBs()> Bs.S. </a>
+                          <a class="dropdown-item" style="cursor: pointer;" data-title="Peso Colombiano" (click)=setBs()> Bs.S. </a>
                         </li>
                         <li *ngIf="this._uw.info[0]">
-                          <a class="dropdown-item" data-title="Peso Colombiano" (click)=setColp()> COLP (Bs.S. {{this._uw.info[0].colp}})</a>
+                          <a class="dropdown-item"  style="cursor: pointer;"data-title="Peso Colombiano" (click)=setColp()> COLP (Bs.S. {{this._uw.info[0].colp}})</a>
                         </li>
                     </ul>
                   </div>
@@ -92,7 +98,37 @@
       </a>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       </div>
+       <div class="table-responsive col-md-6" [hidden]="!router.url.includes('/fruitcart')" style="padding-top: 10px;">  
+                <table class="table" *ngIf="this._uw.info[0]" style="border-top: 0px;">
+                    <tbody style="border-top: 0px;">
+                        <tr style="border-top: 0px;">
+                            <td class="cart_total_label" style="border-top: 0px; text-align: right;">
+                                <h5 style="font-size: 20px;" >Sub Total</h5>
+                            </td>
+                            <td class="cart_total_amount" style="border-top: 0px; font-size: 20px; text-align: right;"><strong>
+                                 <span class="cart_amount" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].colp"> 
+                                    <span class="price_symbole">$
+                                    </span>
+                                {{this._uw.subTotal*this._uw.currency | number :'1.2-2' }}
+                                </span>
+                                <span class="cart_amount" [hidden]="this._uw.currency==this._uw.info[0].bs || this._uw.currency==this._uw.info[0].usd"> 
+                                    <span class="price_symbole">COLP
+                                    </span>
+                                {{this._uw.subTotal*this._uw.currency | number :'1.0-0' }}
+                                </span>
+                                <span class="cart_amount" [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd"> 
+                                    <span class="price_symbole">Bs.S.
+                                    </span>
+                                {{this._uw.subTotal*this._uw.currency | number :'1.0-0' }}
+                                </span>
+                            </strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
       <ul class="navbar-nav attr-nav align-items-center">
+
+    
         <li [hidden]="router.url.includes('/fruitcart')">
           <a href="javascript:void(0);" class="nav-link search_trigger"><i class="ion-ios-search-strong"></i>
           </a>
