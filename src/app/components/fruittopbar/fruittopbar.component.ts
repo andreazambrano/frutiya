@@ -38,6 +38,20 @@ export class FruittopbarComponent implements OnInit {
   this._uw.numProd=this._uw.numProd-1;
 }
 
+
+public setCurrency(currency){
+  if (currency == "bs"){
+      this._uw.currency=this._uw.info[0].bs;
+  }
+   if (currency == "colp"){
+      this._uw.currency=this._uw.info[0].colp;
+  }
+   if (currency == "usd"){
+      this._uw.currency=this._uw.info[0].usd;
+  }
+  // this._uw.currency=this._uw.info[0].colp;
+};
+
   public initQuan(){
     this._uw.tixPreview.quantity=1;
   }

@@ -83,6 +83,7 @@ ngFormSendSale: FormGroup;
       direccion: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
       personaContacto: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       total: [0,[Validators.required]]
       });
   	 if(this._uw.numProd<1){

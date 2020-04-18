@@ -9,7 +9,8 @@ import { TixInterface } from '../../models/tix-interface';
   styleUrls: ['./fruitproducts.component.css']
 })
 export class FruitproductsComponent implements OnInit {
-
+  info:any={};
+ 
   constructor(
   public _uw:UserWService,
   private dataApi: DataApiService
@@ -32,6 +33,22 @@ export class FruitproductsComponent implements OnInit {
     this.getAllTixs();
   } 
 
+ loadInfo(){
+    this.dataApi
+    .getInfo()
+    .subscribe((res:any) => {
+      if (res[0] === undefined){
+       }else{
+        this.info=res;
+        this._uw.info=this.info;
+        }
+     });
+  }
+
+  public refresh(){
+    this.loadInfo();
+    this.getAllTixs();
+  }
   getAllTixs(){
     this.dataApi
     .getAllTixs()

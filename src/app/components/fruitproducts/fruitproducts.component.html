@@ -31,7 +31,7 @@
                         <a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false" ><span class="pr_icon1"></span>Verduras</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"  (click)="getAllTixs()">
+                        <a class="nav-link active" id="tab1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"  (click)="refresh()">
                           <span class="pr_icon7"></span>Todo</a>
                       </li>
                   
@@ -44,15 +44,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" (click)="viewProduct(tix)">
                                       <div class="product" >
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
                                                         <li><a href="javascript:void(0);" class="nav-link sidetoggle" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!--  <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -62,7 +63,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -75,15 +76,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Verduras'" (click)="viewProduct(tix)" >
                                         <div class="product">
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
-                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                        <li><a class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!-- <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -93,7 +95,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -106,15 +108,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Frutos'" (click)="viewProduct(tix)">
                                        <div class="product">
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
-                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                        <li><a class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!-- <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -124,7 +127,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -137,15 +140,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Legumbres'"(click)="viewProduct(tix)">
                                       <div class="product">
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
-                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                        <li><a class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a  class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!-- <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -155,7 +159,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -168,15 +172,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Bulbos'"(click)="viewProduct(tix)">
                                       <div class="product">
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
-                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                        <li><a class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!-- <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -186,7 +191,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -199,15 +204,16 @@
                                     <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-6" *ngFor="let tix of tixs" [hidden]="tix.category!='Tubérculos'"(click)="viewProduct(tix)">
                                       <div class="product">
                                             <div class="product_img">
-                                                <a href="#"><img src="{{tix.images[0]}}" alt=""/></a>
+                                               <span class="pr_flash_mini bg_green" style="">{{tix.presentacion}}</span>
+                                                <a ><img src="{{tix.images[0]}}" alt=""/></a>
                                                 <div class="product_action_box">
                                                     <ul class="list_none pr_action_btn">
-                                                        <li><a href="#" class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
+                                                        <li><a class="popup-ajax" ><i class="ti-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product_info">
-                                                 <h6><a href="#" class="popup-ajax">{{tix.productName}}</a></h6>
+                                            <div class="product_info" *ngIf="this._uw.info[0]">
+                                                 <h6><a class="popup-ajax">{{tix.productName}}</a></h6>
                                                <!-- <div class="rating">
                                                     <div class="product_rate" style="width:60%"></div></div> -->
                                                 <span [hidden]="this._uw.currency==this._uw.info[0].colp || this._uw.currency==this._uw.info[0].usd">Bs.S. </span>
@@ -217,7 +223,7 @@
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.2-2' }}</span>
                                                <span class="price" [hidden]="this._uw.currency==this._uw.info[0].usd">
                                                {{tix.globalPrice*this._uw.currency  |  number:'1.0-0' }} </span>
-                                               <span> ({{tix.presentacion}})</span>
+                                               <!-- <span> ({{tix.presentacion}})</span> -->
                                             </div>
                                         </div>
                                     </div>
