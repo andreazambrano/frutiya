@@ -92,6 +92,8 @@ ngFormSendSale: FormGroup;
 
   }
 
+
+
 	if (this._uw.loaded==true){
 	    this.loadAPI = new Promise(resolve => {
         this.loadScript();
@@ -103,6 +105,9 @@ ngFormSendSale: FormGroup;
     this._uw.loaded=true;
   }
 
+
+public currencyBit(){}
+public currencyPaypal(){}
   public loadScript4() {
       let node = document.createElement("script");
       node.src = this.url4;
@@ -119,6 +124,8 @@ ngFormSendSale: FormGroup;
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
     }
+}
+}
 public okSale(){
 
   this.submitted = true;
