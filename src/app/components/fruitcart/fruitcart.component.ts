@@ -26,45 +26,44 @@ export class FruitcartComponent implements OnInit {
   	private location: Location,
     private formBuilder: FormBuilder
   	) { }
-
- loadAPI = null;  
-   url4="assets/assetsfruit/js/jquery.parallax-scroll.js";
-   url5 = "assets/assetsfruit/js/scripts.js";
+    loadAPI = null;  
+    url4="assets/assetsfruit/js/jquery.parallax-scroll.js";
+    url5 = "assets/assetsfruit/js/scripts.js";
    
 
     stepUno=true;
-  stepDos=false;
-  stepTres=false;
+    stepDos=false;
+    stepTres=false;
     public setStepDos(){
       this.scrollTopService.setScrollTop();
-    this.stepDos=true;
-    this.stepUno=false;
-    this.stepTres=false;
-  }
-  public setStepUno(){
-    this.scrollTopService.setScrollTop();
-    this.stepDos=false;
-    this.stepUno=true;
-    this.stepTres=false;
-  }
-  public setStepTres(){
-    this.scrollTopService.setScrollTop();
-    this.stepDos=false;
-    this.stepUno=false;
-    this.stepTres=true;
-  }
+      this.stepDos=true;
+      this.stepUno=false;
+      this.stepTres=false;
+    }
+    public setStepUno(){
+      this.scrollTopService.setScrollTop();
+      this.stepDos=false;
+      this.stepUno=true;
+      this.stepTres=false;
+    }
+    public setStepTres(){
+      this.scrollTopService.setScrollTop();
+      this.stepDos=false;
+      this.stepUno=false;
+      this.stepTres=true;
+    }
 
 public sale : SaleInterface ={
-      car:[],
-      email:"",
-      direccion:"",
-      id:"",
-      personaContacto:"",
-      total:0
-    };
+  car:[],
+  email:"",
+  direccion:"",
+  id:"",
+  personaContacto:"",
+  total:0
+  };
 
 ngFormSendSale: FormGroup;
-  submitted = false;
+ submitted = false;
      
   
 
@@ -73,8 +72,7 @@ ngFormSendSale: FormGroup;
   url3 = "assets/assetsfruit/js/scripts.js";
 
   ngOnInit() {
- 
-        this.stepUno=true;
+    this.stepUno=true;
     if(this._uw.numProd<1){
     this.router.navigate(['/']);
 
@@ -106,8 +104,7 @@ ngFormSendSale: FormGroup;
   }
 
 
-public currencyBit(){}
-public currencyPaypal(){}
+
   public loadScript4() {
       let node = document.createElement("script");
       node.src = this.url4;
@@ -124,24 +121,22 @@ public currencyPaypal(){}
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
     }
-}
-}
-public okSale(){
-
-  this.submitted = true;
+  public currencyBit(){}
+  public currencyPaypal(){}
+  public okSale(){
+    this.submitted = true;
       if (this.ngFormSendSale.invalid) {
         this._uw.errorFormSendSale=true;
       return;
-        } 
-        this._uw.errorFormSendSale=false;
-
+          } 
+      this._uw.errorFormSendSale=false;
       this.sale = this.ngFormSendSale.value;
-this.sale.total=(this._uw.subTotal*this._uw.currency);
-  this.sale.car=this._uw.car;
-  return this.dataApi.saveSale(this.sale)
-        .subscribe(
-        );
-}
+      this.sale.total=(this._uw.subTotal*this._uw.currency);
+      this.sale.car=this._uw.car;
+      return this.dataApi.saveSale(this.sale)
+          .subscribe(
+          );
+  }
 
   public minus(index){
   	let id=index;
